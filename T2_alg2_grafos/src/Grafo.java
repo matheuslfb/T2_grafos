@@ -18,7 +18,7 @@ import java.util.List;
 public class Grafo {
 
 
-	LinkedList<LinkedList<Adjacente>> la = new LinkedList<LinkedList<Adjacente>>();
+	LinkedList<LinkedList<Adjacente>> la = new LinkedList<LinkedList<Adjacente>>(); //instancia a LA
 	
 	static class Adjacente {
 		int peso;
@@ -43,27 +43,28 @@ public class Grafo {
 		try (BufferedReader bf = new BufferedReader(new FileReader(nomeDoArquivo))) {
 			tamanho = Integer.parseInt(bf.readLine());
 			for (int i = 0; i < tamanho; i++) {
-				la.add(new LinkedList<>());
+				la.add(new LinkedList<>()); // adiciona uma lista em cada posição da LA
 			}
 			
 			while ((linha = bf.readLine()) != null) {
 				aresta = linha.split(" ");
 				System.out.println(Arrays.toString(aresta));
-				addAresta(Integer.parseInt(aresta[0]), Integer.parseInt(aresta[1]), Integer.parseInt(aresta[2]));
+				addAresta(Integer.parseInt(aresta[0]), Integer.parseInt(aresta[1]), Integer.parseInt(aresta[2])); // passa origem, destino e peso como parametros. Pra cada elemento origem,
+				// adicionado seu adjacente com peso e destino
 			}
 		}
 	}
 
 	public void addAresta(int origem, int destino, int peso) {
-		la.get(origem).add(new Adjacente(peso, destino));
+		la.get(origem).add(new Adjacente(peso, destino)); // cria uma aresta, pegando o nodo de origem e adicionando na lista o pedo e o nodo destino
 		
 	}
 		
 	public int grauDeSaida(int nodo){
-		return  la.get(nodo).size();
+		return  la.get(nodo).size(); // pega o nodo e retorna o grau
 	}
 	
-	public int grauDeEntrada(int nodo){
+	public int grauDeEntrada(int nodo){ //percorre em profundidade e retorna o grau de entrada
 		int cont = 0;
 		for (int i = 0; i < la.size(); i++) {
 			for (int j = 0 ; j < la.get(i).size(); j++){
@@ -75,7 +76,7 @@ public class Grafo {
 		return cont;
 	}
 	
-	public int getArestas(){
+	public int getArestas(){ // retorna quantas arestas tem no grafo
 		int cont = 0;
 		for (int i = 0; i < la.size(); i++) {
 			cont += la.get(i).size();

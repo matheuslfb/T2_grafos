@@ -10,7 +10,7 @@ public class App {
 		int nodo;
 		Grafo g=null;
 		try {
-			g = new Grafo("gr3_3105.txt");
+			g = new Grafo("src\\gr3_3105.txt");
 		} catch (IOException e) {
 			System.out.println("Impossível ler grafo!");
 		}
