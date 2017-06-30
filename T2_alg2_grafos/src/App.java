@@ -7,7 +7,7 @@ public class App {
 		int nodo;
 		Grafo g=null;
 		try {
-			g = new Grafo("gr_2205.txt");
+			g = new Grafo("routes.dat");
 		} catch (IOException e) {
 			System.out.println("Impossível ler grafo1.txt!");
 		}
