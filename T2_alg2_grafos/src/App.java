@@ -1,7 +1,4 @@
-
-
 import java.io.IOException;
-
 import java.util.Scanner;
 
 public class App {
@@ -10,33 +7,29 @@ public class App {
 		int nodo;
 		Grafo g=null;
 		try {
-			g = new Grafo("src\\gr3_3105.txt");
+			g = new Grafo("gr_2205.txt");
 		} catch (IOException e) {
-			System.out.println("Impossível ler grafo!");
+			System.out.println("Impossível ler grafo1.txt!");
 		}
 		System.out.println(g);
 		
 		System.out.println("Informe o nodo:\n");
 		nodo = entrada.nextInt();
-		System.out.println("Grau de saída nodo: " + g.grauDeSaida(nodo));
-		System.out.println("Grau de entrada nodo: " + g.grauDeEntrada(nodo));
-		System.out.println("Vertice mais proximo: " + g.getAdjacenteProximo(nodo));
-		System.out.println("Arestas: " + g.getArestas());
-
-//		
-//		System.out.println("Maior(es) grau(s): "+g.maiorGrau());
-//		
-//		System.out.println("\nNúmero de arestas:");
-//		System.out.println(g.contAresta());
-//		
-//		System.out.println("Percursos. Digite o nodo inicial: ");
-//		int vertinicial = entrada.nextInt();
-//		
-//		System.out.println("\nPercurso por Amplitude: ");
-//		System.out.println(g.percursoAmplitude(vertinicial));
-//		
-//		System.out.println("\nPercurso por Profundidade: ");
-//		System.out.println(g.percursoProfundidade(vertinicial));
+		System.out.println("Grau do nodo: " + g.grau(nodo));
+		
+		System.out.println("Maior(es) grau(s): "+g.maiorGrau());
+		
+		System.out.println("\nNúmero de arestas:");
+		System.out.println(g.contAresta());
+		
+		System.out.println("Percursos. Digite o nodo inicial: ");
+		int vertinicial = entrada.nextInt();
+		
+		System.out.println("\nPercurso por Amplitude: ");
+		System.out.println(g.percursoAmplitude(vertinicial));
+		
+		System.out.println("\nPercurso por Profundidade: ");
+		System.out.println(g.percursoProfundidade(vertinicial));
 
 	}
 
