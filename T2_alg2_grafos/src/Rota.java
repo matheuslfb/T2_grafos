@@ -7,7 +7,6 @@ public class Rota implements Serializable {
 	private CiaAerea cia;
 	private Aeroporto origem;
 	private Aeroporto destino;
-	private Aeronave aeronave;
 	private String ciaa, orig, dest;
 
 	public Rota(CiaAerea cia, Aeroporto origem, Aeroporto destino, Aeronave aeronave) {
@@ -40,9 +39,7 @@ public class Rota implements Serializable {
 	public Aeroporto getOrigem() {
 		return origem;
 	}
-	public Aeronave getAeronave() {
-		return aeronave;
-	}
+	
 	public String getCiaa() {
 		return ciaa;
 	}
